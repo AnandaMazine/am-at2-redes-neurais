@@ -1,0 +1,46 @@
+### 1. Informações do serviço
+GET http://127.0.0.1:8000/info
+User-Agent: Client-Avaliativo
+Accept: application/json
+
+### 2. Predição — Perfil A
+POST http://127.0.0.1:8000/predict
+User-Agent: Client-Avaliativo
+Content-Type: application/json
+
+{
+  "lead_time": 30,
+  "stays_in_weekend_nights": 2,
+  "stays_in_week_nights": 3,
+  "adults": 2,
+  "hotel": "Resort Hotel",
+  "market_segment": "Online TA"
+}
+
+### 3. Predição — Perfil B
+POST http://127.0.0.1:8000/predict
+User-Agent: Client-Avaliativo
+Content-Type: application/json
+
+{
+  "lead_time": 200,
+  "stays_in_weekend_nights": 0,
+  "stays_in_week_nights": 2,
+  "adults": 2,
+  "hotel": "City Hotel",
+  "market_segment": "Groups"
+}
+
+### 4. Entrada inválida — antecedência negativa
+POST http://127.0.0.1:8000/predict
+User-Agent: Client-Avaliativo
+Content-Type: application/json
+
+{
+  "lead_time": -10,
+  "stays_in_weekend_nights": 2,
+  "stays_in_week_nights": 3,
+  "adults": 2,
+  "hotel": "Resort Hotel",
+  "market_segment": "Online TA"
+}
